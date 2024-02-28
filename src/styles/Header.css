@@ -1,0 +1,75 @@
+/* Header.css */
+.navbarnav {
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.navlogo {
+  display: flex;
+}
+
+.img-comp {
+  height: 50px;
+  width: 100px;
+  object-fit: cover;
+}
+
+.navbardet {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.optionsnav {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.each-op {
+  padding: 5px;
+  margin-right: 5px;
+}
+
+.apply-filter {
+  margin-right: 10px;
+  position: relative;
+  align-self: center;
+  padding: 3px;
+  padding-top: 6px;
+
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.searchBar {
+  width: 20vw;
+}
+
+.dark-header {
+  background-color: #333;
+  color: #fff;
+}
+
+.light-header {
+  background-color: #eee;
+  color: #333;
+}
+
+.dark-mode {
+  background-color: #444;
+  color: #fff;
+}
+
+.light-mode {
+  background-color: #fff;
+  color: #333;
+}

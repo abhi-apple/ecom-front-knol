@@ -1,0 +1,19 @@
+.productCard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btns-multi {
+  display: flex;
+  justify-content: space-around;
+}
+.dark-header {
+  background-color: #333;
+  color: #fff;
+}
+
+.light-header {
+  background-color: #eee;
+  color: #333;
+}

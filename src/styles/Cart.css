@@ -1,0 +1,19 @@
+.cartMain {
+  width: 100vw;
+  /* height: 80vh; */
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.cartdetails {
+  display: flex;
+  flex-direction: column;
+}
+.carttotal {
+  display: flex;
+  justify-content: space-evenly;
+  font-weight: 800;
+  font-size: larger;
+}
