@@ -10,9 +10,11 @@ const Products = ({ category, filter, avgrating, searchText }) => {
   const [enableMulti, setenableMulti] = useState(false);
   const [allProducts, setallProducts] = useState([]);
   const { isDarkTheme, toggleTheme } = useTheme();
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
   useEffect(() => {
     const fetchFilteredProducts = async () => {
+      setIsLoading(true);
       try {
         const token = localStorage.getItem("token");
         if (!token) {
@@ -41,13 +43,16 @@ const Products = ({ category, filter, avgrating, searchText }) => {
 
             setProducts(data.products);
             setallProducts(data.products);
+            setIsLoading(false);
             console.log(data, "filtered products");
           } else {
+            setIsLoading(false);
             throw new Error("Failed to fetch products");
           }
         }
       } catch (error) {
         navigate("/login");
+        setIsLoading(false);
         console.error("Error fetching products:", error);
       }
     };
@@ -75,23 +80,19 @@ const Products = ({ category, filter, avgrating, searchText }) => {
     setmultiSelect([]);
     setenableMulti(false);
 
-    // Create a map to count occurrences of each item
     const itemOccurrences = new Map();
     multiSelect.forEach((itemId) => {
       itemOccurrences.set(itemId, (itemOccurrences.get(itemId) || 0) + 1);
     });
 
-    // Filter out odd occurrences
     const oddOccurrences = multiSelect.filter(
       (itemId) => itemOccurrences.get(itemId) % 2 === 1
     );
 
     console.log(oddOccurrences, "odd repeating items");
 
-    // Keep track of successful additions
     let successfulAdditions = 0;
 
-    // Perform fetch operation on oddOccurrences
     oddOccurrences.forEach((itemId) => {
       fetch("https://fine-red-angler-wrap.cyclic.app/api/users/additem", {
         method: "POST",
@@ -132,25 +133,31 @@ const Products = ({ category, filter, avgrating, searchText }) => {
 
   console.log(products, "this is search prod ");
   return (
-    <div className={isDarkTheme ? "dark-header " : "light-header "}>
-      <div className="btns-multi">
-        <button onClick={handleMultiSelect} className="add-to-cart">
-          Add Multiple Items
-        </button>
-        <button onClick={handleAddAllToCart} className="add-to-cart">
-          Add All To Cart
-        </button>
-      </div>
-      <div className="productCard">
-        {products.map((product) => (
-          <ProductCard
-            enableMulti={enableMulti}
-            setmultiSelect={setmultiSelect}
-            key={product._id}
-            product={product}
-          />
-        ))}
-      </div>
+    <div>
+      {isLoading ? (
+        <div>Loading...</div>
+      ) : (
+        <div className={isDarkTheme ? "dark-header " : "light-header "}>
+          <div className="btns-multi">
+            <button onClick={handleMultiSelect} className="add-to-cart">
+              Add Multiple Items
+            </button>
+            <button onClick={handleAddAllToCart} className="add-to-cart">
+              Add All To Cart
+            </button>
+          </div>
+          <div className="productCard">
+            {products.map((product) => (
+              <ProductCard
+                enableMulti={enableMulti}
+                setmultiSelect={setmultiSelect}
+                key={product._id}
+                product={product}
+              />
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -45,11 +45,11 @@ const Register = () => {
         alert(error.message);
       });
   };
-
   return (
-    <div>
+    <div className="register-container">
+      <h1>Register</h1>
       <form onSubmit={handleSubmit} className="register-form">
-        <div className="first-name">
+        <div className="input-field">
           <label htmlFor="firstName">First Name</label>
           <input
             value={formData.firstName}
@@ -60,7 +60,7 @@ const Register = () => {
             required
           />
         </div>
-        <div className="last-name">
+        <div className="input-field">
           <label htmlFor="lastName">Last Name</label>
           <input
             value={formData.lastName}
@@ -71,7 +71,7 @@ const Register = () => {
             required
           />
         </div>
-        <div className="phone-number">
+        <div className="input-field">
           <label htmlFor="phoneNumber">Phone Number</label>
           <input
             type="text"
@@ -82,7 +82,7 @@ const Register = () => {
             required
           />
         </div>
-        <div className="password">
+        <div className="input-field">
           <label htmlFor="password">Password</label>
           <input
             type="password"
@@ -94,7 +94,7 @@ const Register = () => {
           />
         </div>
         <button className="submit-button" type="submit">
-          Login
+          Register
         </button>
       </form>
     </div>

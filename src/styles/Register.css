@@ -1,4 +1,4 @@
-.register-form {
+.register-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6,14 +6,17 @@
   height: 100vh;
 }
 
-.first-name,
-.last-name,
-.phone-number,
-.password {
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.register-form {
+  width: 300px;
+}
+
+.input-field {
+  margin-bottom: 15px;
 }
 
 label {
@@ -22,21 +25,14 @@ label {
 
 input {
   padding: 8px;
-  width: 200px;
+  width: 100%;
   margin-top: 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
-.first-name,
-.last-name,
-.phone-number {
-  margin-bottom: 15px;
-}
-
 .submit-button {
   margin-top: 15px;
-  align-self: center;
   padding: 10px 20px;
   background-color: #007bff;
   color: #fff;
