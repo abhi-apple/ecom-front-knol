@@ -239,8 +239,8 @@ const Header = ({
             Clear Filter
           </button>
         </ul>
-        {/* Search form */}
-        <form className="d-flex" role="search" onSubmit={handleSubmit}>
+
+        <form className=" form-search" role="search" onSubmit={handleSubmit}>
           <input
             className={
               isDarkTheme
@@ -260,7 +260,7 @@ const Header = ({
             Search
           </button>
         </form>
-        {/* Buttons */}
+
         <div className="buttons">
           {userName ? (
             <button className="btn btn-warning apply-filter">

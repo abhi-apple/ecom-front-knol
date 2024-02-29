@@ -36,6 +36,14 @@
   margin-right: 5px;
 }
 
+.form-search {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 22vw;
+  align-items: center;
+}
+
 .apply-filter {
   margin-right: 10px;
   position: relative;
@@ -51,7 +59,7 @@
 }
 
 .searchBar {
-  width: 20vw;
+  width: 15vw;
 }
 
 .dark-header {
